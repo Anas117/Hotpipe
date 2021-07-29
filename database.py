@@ -21,10 +21,5 @@ def insertKeyword_url(keyword, url):
 def getUrlByKeyword(keyword, url):
     connection = sqlite3.connect('scrapedata.db')
     c = connection.cursor()
-    c.execute('''select * from keyword_url where keyword = ? and url like ? limit 10''', (keyword, url+'%'))
+    c.execute('''select * from keyword_url where keyword = ? and url like ? limit 100''', (keyword, url+'%'))
     return c.fetchall()
-
-connection = sqlite3.connect('scrapedata.db')
-c = connection.cursor()
-c.execute('''select * from keyword_url''')
-print(c.fetchall())
